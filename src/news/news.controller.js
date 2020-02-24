@@ -1,10 +1,10 @@
 import React,{ Component } from "react";
-import PricelistView from './banggia.view'
-import { HeaderTitle } from "@react-navigation/stack";
+
 import category from '../../callapi/category'
+import NewsView from './news.view'
 
 
-export default class PricelistController extends Component
+export default class NewsController extends Component
 
 {
 
@@ -15,7 +15,7 @@ export default class PricelistController extends Component
         }
     }
     componentDidMount()
-    {   var id=2;
+    {   var id=4;
         category.categoryApi({id}).then((response)=>{
             
              console.log(response);
@@ -27,9 +27,9 @@ export default class PricelistController extends Component
     render()
     {        
         return(
-            <PricelistView
+            <NewsView
                     data={this.state.data}
-            ></PricelistView>
+            ></NewsView>
         );  
     }
  }

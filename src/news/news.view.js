@@ -1,36 +1,29 @@
-
-
 import React, { Component } from "react";
-import { View, Text, ImageBackground, StyleSheet, HeaderTitle,Image,Headers } from 'react-native';
-import category from '../../callapi/category'
-import { FlatList } from "react-native-gesture-handler"
+import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity } from 'react-native';
+import { FlatList } from "react-native-gesture-handler";
 import HeadersView from '../header/header'
-export default class PricelistView extends Component
+
+export default class NewsView extends Component
 {
+
     constructor()
     {
         super();
         this.state={
-            db:null,
-            content:"Bảng Giá",
-            
+            content:"Có gì mới"
         }
-        
     }
-     
     render()
-    { 
-        // console.log("data tu controller", this.props.data)
-       
+    {
         return(
             <View>
-               <HeadersView content={this.state.content}></HeadersView>
-                <View>
+                <HeadersView content={this.state.content}> </HeadersView>
+                 <View>
                     <FlatList
                     data={this.props.data}
                     renderItem={({item})=>
                     <View style={style.boder}> 
-                        
+                        <Image source={require('../img/imgvpost.png')} style={style.img}></Image>
                         <Text style={style.textView}>{item.category1}</Text>
                     </View>
                         }
@@ -38,27 +31,31 @@ export default class PricelistView extends Component
                     </FlatList>
                  </View>
             </View>
-        );     
+        );
     }
 }
 const style = StyleSheet.create(
     {
         boder:{
-            borderBottomWidth: 0.5,
-            borderBottomColor: 'black',           
+                     
             flexDirection:"row",
             paddingTop:10,
-            marginTop:5,           
+            marginTop: 20,
             backgroundColor:"#fff",
-            paddingBottom:10
+            paddingBottom:10,
+            elevation: 5,
+            marginLeft:10,
+            marginRight:10,
+            borderRadius: 10
         },
         textView:
         { 
-           
+           flex:2
         },
         img:{
-            width:100,
-            height:100
+            width:80,
+            height:80,
+            flex:1
         },
         header:{
             justifyContent:"center",

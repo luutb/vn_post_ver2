@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, } from 'react-native';
-import ImageSlider from 'react-native-image-slider';
 import Slider1 from '../img/image_slider1.png';
 import Slider2 from '../img/image_slider2.png';
 
@@ -19,44 +18,43 @@ export default class MainActivityView extends Component
                         ></ImageBackground>
                     </View>
                     <View style={style.img2}>
-                    <View style={style.imgSlider} >
-                        <ImageSlider images={imgArr}
-                                        
-                        ></ImageSlider>
-                    </View>
+                        <View style={style.imgSlider} >
+                            
+                        </View>
                     </View>
                     <View style={style.img3} >
                         
                             <View style={style.img3_1}>
                                 <TouchableOpacity style={style.icon}  onPress={()=>this.setClick(1)}>
                                      <Image source={require('../img/icon1.png')}></Image>
-                                     <Text>a</Text>
+                                     <Text style={style.text}>Tra cứu bưu cục</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={style.icon}  onPress={()=>this.setClick(2)}>
-                                     <Image source={require('../img/icon1.png')}></Image>
+                                     <Image source={require('../img/icon2.png')}></Image>
+                                     <Text style={style.text}>Bảng Giá</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={style.icon}>
-                                     <Image source={require('../img/icon1.png')}></Image>
+                                     <Image source={require('../img/icon3.png')}></Image>
+                                     <Text style={style.text}>Hỏi Đáp</Text>
                                 </TouchableOpacity>   
                             </View>                                                                                                      
                             <View style={style.img3_1}>
+                                <TouchableOpacity style={style.icon} onPress={()=>this.setClick(4)} >
+                                     <Image source={require('../img/icon4.png')} ></Image>
+                                     <Text style={style.text}>Có gì mới</Text>
+                                    
+                                </TouchableOpacity>
                                 <View style={style.icon}>
-                                     <Image source={require('../img/icon1.png')}></Image>
-                                     <Text>ABC</Text>
+                                     <Image source={require('../img/icon5.png')}></Image>
+                                     <Text style={style.text}>Thông tin ứng dụng</Text>
                                 </View>
                                 <View style={style.icon}>
-                                     <Image source={require('../img/icon1.png')}></Image>
-                                </View>
-                                <View style={style.icon}>
-                                     <Image source={require('../img/icon1.png')}></Image>
+                                     <Image source={require('../img/icon6.png')}></Image>
+                                     <Text style={style.text}>Tính thử cước</Text>
                                 </View>   
-                            </View>
-                            
+                            </View>                          
                     </View>
-                </View>
-               
-            
-            
+                </View>           
             );
         }
         setClick(i){
@@ -86,10 +84,10 @@ const style = StyleSheet.create(
             flex:0.8
         },
         img2:{
-            flex:3.2
+            flex:3
         },
         img3:{
-            flex:2,
+            flex:2.2,
             
             flexDirection: "column"
         },
@@ -105,10 +103,13 @@ const style = StyleSheet.create(
                 alignItems:"center",
                 borderBottomColor:'white',
                 flexDirection:"column",
-                justifyContent:"flex-start"
+                justifyContent:"flex-start",
+                alignContent:"center"             
+            },
+        text:{
                 
-               
-            },     
+            
+        }  
                 
         }
     

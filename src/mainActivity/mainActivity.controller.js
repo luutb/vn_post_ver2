@@ -20,16 +20,16 @@ export default class MainActivityController extends Component
     onClick(i)
     { 
         switch(i){
-            case 1:{ this.props.navigation.navigate("Bang Gia");
+            case 1:{ this.props.navigation.navigate("abc");
             break;
             }
-            case 2:{ this.props.navigation.navigate("Bảng Giá");
+            case 2:{ this.props.navigation.navigate("Bang Gia");
             break;
             }
-            case 3:{ this.props.navigation.navigate("Bảng Giá");
+            case 3:{ this.props.navigation.navigate("news");
             break;
             }
-            case 4:{ this.props.navigation.navigate("Register");
+            case 4:{ this.props.navigation.navigate("news");
             break;
             }
             case 5:{ this.props.navigation.navigate("Register");

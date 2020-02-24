@@ -8,7 +8,7 @@ import MainActivityController from '../mainActivity/mainActivity.controller'
 
 export default class IntroduceController extends Component
 {
-
+    
     constructor()
     {
         super();
@@ -32,8 +32,7 @@ export default class IntroduceController extends Component
             {
                 return(
                 
-                    <IntroduceView></IntroduceView>
-      
+                    <IntroduceView></IntroduceView>     
               );
             }
 
