@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, } from 'react-native';
+import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, Button, } from 'react-native';
 import Slider1 from '../img/image_slider1.png';
 import Slider2 from '../img/image_slider2.png';
 
@@ -15,7 +15,10 @@ export default class MainActivityView extends Component
                         <ImageBackground
                                 source={require('../img/bg_header.png')}
                                 style={style.imgBackground}
-                        ></ImageBackground>
+                        >
+                            <Text onPress={()=>this.setClick(7)}>Login</Text>
+                        </ImageBackground>
+                        
                     </View>
                     <View style={style.img2}>
                         <View style={style.imgSlider} >
@@ -33,8 +36,8 @@ export default class MainActivityView extends Component
                                      <Image source={require('../img/icon2.png')}></Image>
                                      <Text style={style.text}>Bảng Giá</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={style.icon}>
-                                     <Image source={require('../img/icon3.png')}></Image>
+                                <TouchableOpacity style={style.icon} onPress={()=>this.setClick(3)}>
+                                     <Image source={require('../img/icon3.png')} ></Image>
                                      <Text style={style.text}>Hỏi Đáp</Text>
                                 </TouchableOpacity>   
                             </View>                                                                                                      
@@ -43,15 +46,15 @@ export default class MainActivityView extends Component
                                      <Image source={require('../img/icon4.png')} ></Image>
                                      <Text style={style.text}>Có gì mới</Text>
                                     
-                                </TouchableOpacity>
-                                <View style={style.icon}>
+                                </TouchableOpacity> 
+                                <TouchableOpacity style={style.icon} onPress={()=>this.setClick(5)}>
                                      <Image source={require('../img/icon5.png')}></Image>
-                                     <Text style={style.text}>Thông tin ứng dụng</Text>
-                                </View>
-                                <View style={style.icon}>
+                                     <Text style={[style.text, {textAlign:'center'}]}>Thông tin ứng dụng</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={style.icon} onPress={()=>this.setClick(6)}>
                                      <Image source={require('../img/icon6.png')}></Image>
                                      <Text style={style.text}>Tính thử cước</Text>
-                                </View>   
+                                </TouchableOpacity>   
                             </View>                          
                     </View>
                 </View>           
@@ -60,6 +63,7 @@ export default class MainActivityView extends Component
         setClick(i){
             this.props.onClick(i);
             }
+       
 }
 
 
