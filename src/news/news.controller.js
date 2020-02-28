@@ -1,5 +1,4 @@
 import React,{ Component } from "react";
-
 import category from '../../callapi/category'
 import NewsView from './news.view'
 
@@ -11,7 +10,8 @@ export default class NewsController extends Component
     constructor(){
         super();
         this.state = {
-            data:null
+            data:null,
+            content:null
         }
     }
     componentDidMount()
@@ -29,7 +29,12 @@ export default class NewsController extends Component
         return(
             <NewsView
                     data={this.state.data}
+                    onSubmit={this.onSubmit.bind(this)}
             ></NewsView>
         );  
+    }
+    onSubmit(i)
+    {
+        this.props.navigation.navigate("infor",{data:i});
     }
  }

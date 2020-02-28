@@ -22,21 +22,16 @@ export default class HeadersView extends Component
 }
 const style = StyleSheet.create(
     {
-        header:{
-            
+        header:{           
             flexDirection:"row",
             backgroundColor:"#FF9900",
-            height:50,
-            
+            height:50,           
         },
-        contentHeader:{
-          
+        contentHeader:{        
            flex:5,
            fontSize:20,
            justifyContent:"center",
-           marginRight:60
-          
-            
+           marginRight:60          
         },
         back:{
             alignContent:"center",

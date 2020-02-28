@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity } from 'react-native';
-import { FlatList } from "react-native-gesture-handler";
+import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, FlatList } from 'react-native';
+
 import HeadersView from '../header/header'
 
 export default class QuestionView extends Component
@@ -15,6 +15,7 @@ export default class QuestionView extends Component
     }
     render()
     {
+        
         return(
             <View>
                 <HeadersView content={this.state.content}> </HeadersView>
@@ -22,16 +23,29 @@ export default class QuestionView extends Component
                     <FlatList
                     data={this.props.data}
                     renderItem={({item})=>
-                    <View style={style.boder}> 
-                        <Image source={require('../img/imgvpost.png')} style={style.img}></Image>
-                        <Text style={style.textView}>{item.category1}</Text>
-                    </View>
+                    
+                        <TouchableOpacity style={style.boder} onPress={()=>this.onClick(item.id_category)}>
+                            <View>
+                                <Image source={require('../img/imgvpost.png')} style={style.img}></Image>
+                            </View>
+
+                            <View style={{flexDirection:"column"}}>
+                                <Text style={style.textView}>{item.category1}</Text>
+                                <Text>{item.id_category}</Text>
+                            </View>
+                        </TouchableOpacity>
+                  
+                    
                         }
                     >
                     </FlatList>
                  </View>
             </View>
         );
+    }
+    onClick(i)
+    {
+        this.props.onSubmit(i);
     }
 }
 const style = StyleSheet.create(

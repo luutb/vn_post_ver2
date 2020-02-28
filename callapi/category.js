@@ -24,7 +24,16 @@ export default
           
           
     },
-    
+       
+    postApi: function(data){
+        let query = this.makeParam(data);
+        return fetch(HOST+'api/Category/getPost'+query,{
+            method:'GET',
+            headers: this.getHeader({"Token":"Hall"})
+        })
+        .then((response)=>response.json())
+    },
+
     makeParam(parms){
         let query = "";
         for (var k in parms){

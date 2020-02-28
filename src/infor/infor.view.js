@@ -1,20 +1,31 @@
 import React,{ Component } from "react";
 import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, Button, } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
+import HeadersView from "../header/header";
 export default  class InforApp extends Component
 {
+    constructor()
+    {
+        super();
+        this.state={
+            content:''
+        }
+    }
+    componentDidMount()
+    {
+        console.log("test",this.props.data)
+        this.setState({content:this.props.data})
+        console.log('haha',this.state.content)
+    }
     render()
     {
+               
+        const navigation = this.props.navigation;
         return(
           <ScrollView style={{flex:1}}>
-               <View style={{flex:1, height:300}}>
-                   <View style={style.viewText}>
-                       <Text style={{position: "absolute", top:180,left:10}}>abcdef</Text>
-                   </View>
-                   <View style={style.viewImg}>
-                       <Image source={require("../img/bg_header.png")} style={{width:100,height:100}}></Image>
-                   </View>
-               </View>
+              <HeadersView></HeadersView>
+                <Text></Text>
+               <Text>{this.props.data}</Text>
          </ScrollView>
         );
     }

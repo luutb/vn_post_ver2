@@ -15,9 +15,9 @@ export default class QuestionController extends Component
     }
     componentDidMount()
     {   var id=3;
-        category.categoryApi({id}).then((response)=>{
+        category.postApi({id}).then((response)=>{
             
-             console.log(response);
+            
             this.setState({data:response});
         }).catch((error)=>{
             console.log("Error",error);
@@ -28,7 +28,12 @@ export default class QuestionController extends Component
         return(
             <QuestionView
                     data={this.state.data}
+                    onSubmit ={this.onSubmit.bind(this)}
             ></QuestionView>
         );  
+    }
+    onSubmit(i)
+    {
+        this.props.navigation.navigate("infor",{data:i});
     }
  }

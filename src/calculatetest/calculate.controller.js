@@ -7,12 +7,13 @@ export default class CaculateController extends Component{
     constructor(){
         super();
         this.submitAddress = this.submitAddress.bind(this);
-        this.sub
+       
         this.state={
             SendPerson:"",
             TakePerson:""
         }
     }
+    
     submitAddress(data){
           
             this.setState({SendPerson:data.structured_formatting.secondary_text})         

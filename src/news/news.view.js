@@ -22,16 +22,21 @@ export default class NewsView extends Component
                     <FlatList
                     data={this.props.data}
                     renderItem={({item})=>
-                    <View style={style.boder}> 
+                    <TouchableOpacity style={style.boder} onPress={()=>this.onClick(item.id_category)}> 
                         <Image source={require('../img/imgvpost.png')} style={style.img}></Image>
                         <Text style={style.textView}>{item.category1}</Text>
-                    </View>
+                    </TouchableOpacity>
                         }
                     >
                     </FlatList>
                  </View>
             </View>
         );
+    }
+   
+    onClick(i)
+    {
+        this.props.onSubmit(i);
     }
 }
 const style = StyleSheet.create(
