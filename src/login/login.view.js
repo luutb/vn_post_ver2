@@ -6,6 +6,14 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 export default class LoginView extends Component
 {
+    constructor()
+    {
+        super();
+        this.state={
+            username:'',
+            password:''
+        }
+    }
     render()
     {
         return(
@@ -13,23 +21,32 @@ export default class LoginView extends Component
                 <View style={{margin:20}}>
                     <View style={style.register}>
                         <Icon name="arrowleft" size={20} color="#900" onPress={()=>navigation.goBack(null)}></Icon>
-                        <Text>Đăng ký</Text>
+                        <Text style={{color:"#fff"}}>Đăng ký</Text>
+                    </View>
+                    <View style={{flex:1, flexDirection:"row", marginTop:10}}>
+                        <Image source={require('../img/bg_header.png')} style={{flex:1}} ></Image>
                     </View>
                     <View >
                         <View style={style.formLogin}>
                             <Icon name="user" size={20} color="#900" style={style.icon}></Icon>
-                            <TextInput placeholder="Tài khoản ..."></TextInput>
+                            <TextInput placeholder="Tài khoản ..." onChangeText={(text)=>this.setState({username:text})}></TextInput>
                         </View>
                         <View style={style.formLogin}>
-                            <Icon name="onepassword" size={20} color="#900" style={style.icon}></Icon>
-                            <TextInput placeholder="Mật khẩu"></TextInput>
+                            <Icon name="textbox-password" size={20} color="#900" style={style.icon}></Icon>
+                            <TextInput placeholder="Mật khẩu" onChangeText={(text)=>this.setState({password:text})}></TextInput>
                         </View>
-                        <Button title="Đăng Nhập"></Button>
+                        <View style={{marginTop:10, backgroundColor:"#000099", height:40,justifyContent:"center"}}>
+                            <Text style={style.button} onPress={this.onClick.bind(this)}>Đăng Nhập</Text>
+                        </View>
                         <Text>Quên mật khẩu</Text>
                     </View> 
                 </View>
             </ScrollView>
         );
+    }
+    onClick(){
+        var{username,password}= this.state
+        this.props.onSubmit(username,password);
     }
 
 }
@@ -50,6 +67,13 @@ const style = StyleSheet.create(
         register:{
             flexDirection:"row",
             justifyContent:"space-between"
+        },
+         button:{
+            textAlign:"center",
+            color:"#FFF", 
+            
+            fontFamily:"lucida grande", 
+            fontWeight:"bold"
         }
-}
+    }
 );

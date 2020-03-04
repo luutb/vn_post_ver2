@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, FlatList } from 'react-native';
 
 import HeadersView from '../header/header'
+import { ScrollView } from "react-native-gesture-handler";
 
 export default class QuestionView extends Component
 {
@@ -17,21 +18,21 @@ export default class QuestionView extends Component
     {
         
         return(
-            <View>
+            <ScrollView>
                 <HeadersView content={this.state.content}> </HeadersView>
                  <View>
                     <FlatList
                     data={this.props.data}
                     renderItem={({item})=>
                     
-                        <TouchableOpacity style={style.boder} onPress={()=>this.onClick(item.id_category)}>
-                            <View>
-                                <Image source={require('../img/imgvpost.png')} style={style.img}></Image>
+                        <TouchableOpacity style={style.boder} onPress={()=>this.onClick(item)}>
+                            <View style={style.img}>
+                                <Image source={require('../img/imgvpost.png')}  style={{width:"100%", height:"100%"}} ></Image>
                             </View>
 
-                            <View style={{flexDirection:"column"}}>
+                            <View style={{flexDirection:"column", flex:2}}>
                                 <Text style={style.textView}>{item.category1}</Text>
-                                <Text>{item.id_category}</Text>
+                                <Text style={{marginTop:10, color:"#C0C0C0"}}>{item.post.slice(0,100)}</Text>
                             </View>
                         </TouchableOpacity>
                   
@@ -40,7 +41,7 @@ export default class QuestionView extends Component
                     >
                     </FlatList>
                  </View>
-            </View>
+            </ScrollView>
         );
     }
     onClick(i)
@@ -54,7 +55,8 @@ const style = StyleSheet.create(
                      
             flexDirection:"row",
             paddingTop:10,
-            marginTop: 20,
+            marginTop: 10,
+            marginBottom: 10,
             backgroundColor:"#fff",
             paddingBottom:10,
             elevation: 5,
@@ -69,7 +71,7 @@ const style = StyleSheet.create(
         img:{
             width:80,
             height:80,
-            flex:1
+            flex:1,
         },
         header:{
             justifyContent:"center",

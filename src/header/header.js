@@ -25,7 +25,7 @@ const style = StyleSheet.create(
         header:{           
             flexDirection:"row",
             backgroundColor:"#FF9900",
-            height:50,           
+            height:60,           
         },
         contentHeader:{        
            flex:5,

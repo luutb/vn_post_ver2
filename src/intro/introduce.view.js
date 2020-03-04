@@ -10,8 +10,7 @@ export default class IntroduceView extends Component
             return(
                 <View style={styles.viewIntro} >  
                     <ImageBackground source={require('../img/unnamed.jpg')}
-                    style={styles.backgroundImage}
-                    
+                    style={styles.backgroundImage}                  
                     ></ImageBackground>
                  </View>
             );

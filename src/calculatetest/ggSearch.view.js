@@ -18,11 +18,17 @@ autoComplete(){
       }}
       
       onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
-      this.props.navigation.goBack(null)
-      if(this.props.params.species=="nhan")
-      {
-      this.props.route.params.onSubmit(data)
+      console.log("data", data)
+      if(this.props.route.params.key==1){
+         this.props.route.params.onSubmit(data)
+         this.props.navigation.goBack(null)
       }
+      if(this.props.route.params.key==2)
+      {
+        this.props.route.params.onSubmit(data)
+        this.props.navigation.goBack(null)
+      }
+     
       console.log("data", data)
     }}
     styles={{

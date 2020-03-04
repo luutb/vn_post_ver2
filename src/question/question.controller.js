@@ -15,9 +15,9 @@ export default class QuestionController extends Component
     }
     componentDidMount()
     {   var id=3;
-        category.postApi({id}).then((response)=>{
+        category.allApi({id}).then((response)=>{
             
-            
+            console.log("data", response)
             this.setState({data:response});
         }).catch((error)=>{
             console.log("Error",error);

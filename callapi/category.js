@@ -1,5 +1,5 @@
 
-const HOST = "http://10.141.23.164:8080/";
+const HOST = "http://192.168.44.103:8080/";
 export default
 {
     getHeader: function(more ={}){
@@ -32,6 +32,24 @@ export default
             headers: this.getHeader({"Token":"Hall"})
         })
         .then((response)=>response.json())
+    },
+    allApi: function(data){
+        let query = this.makeParam(data);
+        return fetch(HOST+'api/Category/getData'+query,{
+            method:'GET',
+            headers: this.getHeader({"Token":"Hall"})
+        })
+        .then((response)=>response.json())
+    },
+    postData: function(data){
+        return fetch(HOST+'api/Login/postData', {
+            method:'POST',
+            headers: this.getHeader({"Token":"Hall"}),
+            
+            body: JSON.stringify(data),
+        })
+        .then((response)=>response.json())
+
     },
 
     makeParam(parms){

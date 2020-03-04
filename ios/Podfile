@@ -40,6 +40,10 @@ target 'VietNamPost' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'react-native-viewpager', :path => '../node_modules/@react-native-community/viewpager'
+
   target 'VietNamPostTests' do
     inherit! :search_paths
     # Pods for testing

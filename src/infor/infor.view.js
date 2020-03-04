@@ -8,24 +8,29 @@ export default  class InforApp extends Component
     {
         super();
         this.state={
-            content:''
+            
+            text:''
         }
     }
     componentDidMount()
     {
-        console.log("test",this.props.data)
-        this.setState({content:this.props.data})
-        console.log('haha',this.state.content)
+       
+        this.setState({text:this.props.data})
+        //this.setState({content:this.props.content})
+        
     }
     render()
     {
-               
-        const navigation = this.props.navigation;
+        console.log('haha',this.props.content)      
+      
         return(
-          <ScrollView style={{flex:1}}>
-              <HeadersView></HeadersView>
-                <Text></Text>
-               <Text>{this.props.data}</Text>
+          <ScrollView style={{flex:1, backgroundColor:"#FFF"}}>
+                <View>
+                        <HeadersView content={this.props.content.slice(0,30)}></HeadersView>
+                </View>
+                <View style={{marginTop:10}}>
+                    <Text style={{fontSize:16}}>{this.props.data}</Text>
+                </View>
          </ScrollView>
         );
     }
@@ -34,7 +39,7 @@ const style = StyleSheet.create(
     {
         viewImg:{
             position: "absolute",
-           flex:1,
+            flex:1,
             top: 20,
             left:20,
             width:100,

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, Button, } from 'react-native';
+import { View, Text, ImageBackground,StyleSheet,Image,TouchableOpacity, Button,ScrollView } from 'react-native';
+
 import Slider1 from '../img/image_slider1.png';
 import Slider2 from '../img/image_slider2.png';
 
@@ -21,10 +22,18 @@ export default class MainActivityView extends Component
                         
                     </View>
                     <View style={style.img2}>
-                        <View style={style.imgSlider} >
-                            
-                        </View>
+                        <ScrollView horizontal={true} 
+                             pagingEnabled={false}>
+                            <View style={{flex:1}}>
+                                    <Image source={require('../img/image_slider1.png')}></Image>
+                            </View>
+                            <View style={{flex:1}}>
+                            <Image source={require('../img/image_slider2.png')}></Image>
+                            </View>
+                        </ScrollView>
                     </View>
+                
+                    
                     <View style={style.img3} >
                         
                             <View style={style.img3_1}>
@@ -88,7 +97,8 @@ const style = StyleSheet.create(
             flex:0.8
         },
         img2:{
-            flex:3
+            flex:3,
+            height:300
         },
         img3:{
             flex:2.2,

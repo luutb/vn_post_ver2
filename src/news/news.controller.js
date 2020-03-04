@@ -11,14 +11,15 @@ export default class NewsController extends Component
         super();
         this.state = {
             data:null,
-            content:null
+            
         }
     }
     componentDidMount()
-    {   var id=4;
-        category.categoryApi({id}).then((response)=>{
+    { 
+         var id=4;
+        category.allApi({id}).then((response)=>{
             
-             console.log(response);
+           
             this.setState({data:response});
         }).catch((error)=>{
             console.log("Error",error);
@@ -26,7 +27,7 @@ export default class NewsController extends Component
     }      
     render()
     {        
-        return(
+        return( 
             <NewsView
                     data={this.state.data}
                     onSubmit={this.onSubmit.bind(this)}

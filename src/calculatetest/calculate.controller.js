@@ -7,7 +7,7 @@ export default class CaculateController extends Component{
     constructor(){
         super();
         this.submitAddress = this.submitAddress.bind(this);
-       
+        this.submitTakeAddress = this.submitTakeAddress.bind(this);
         this.state={
             SendPerson:"",
             TakePerson:""
@@ -18,6 +18,10 @@ export default class CaculateController extends Component{
           
             this.setState({SendPerson:data.structured_formatting.secondary_text})         
     }
+    submitTakeAddress(data){
+          
+        this.setState({TakePerson:data.structured_formatting.secondary_text})         
+}
   
     render()
     {
@@ -27,14 +31,18 @@ export default class CaculateController extends Component{
             <CalculateView 
                  setSearch={this.setSearch.bind(this)}
                  Send={this.state.SendPerson}
+                 Take={this.state.TakePerson}
                  >
                 
             </CalculateView>
         );
     }
-    setSearch(i){
-    
-        
-        this.props.navigation.navigate("search",{onSubmit:this.submitAddress})
+    setSearch(i){  
+        if(i==1)
+        {  
+            this.props.navigation.navigate("search",{onSubmit:this.submitAddress,key:1})
+        }   
+        else
+            this.props.navigation.navigate("search",{onSubmit:this.submitTakeAddress,key:2})
     }
 }

@@ -7,7 +7,9 @@ import QuestionController from "./src/question/question.controller"
 import CaculateController from "./src/calculatetest/calculate.controller"
 import LoginController from "./src/login/login.controller"
 import GoogleSearch from "./src/calculatetest/ggSearch.view"
-import InforAppController from "./src/infor/infor.cotroller"
+import InforController from "./src/infor/infor.cotroller"
+
+
 export default
 [
     {
@@ -52,6 +54,6 @@ export default
     },
     {
         name:"infor",
-        component: InforAppController
+        component: InforController
     }
 ]
