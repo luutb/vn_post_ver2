@@ -3,7 +3,7 @@ import React,{ Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { createStackNavigator } from '@react-navigation/stack';
-
+import {MenuProvider} from 'react-native-popup-menu'
 import routers from './router.config'
 
 const Stack = createStackNavigator();
@@ -12,7 +12,7 @@ export default class MyCenter extends Component
   render()
   {
     return(
-      
+        <MenuProvider>
         <NavigationContainer>
             <Stack.Navigator           
             screenOptions={{
@@ -23,6 +23,7 @@ export default class MyCenter extends Component
             </Stack.Navigator>
             
         </NavigationContainer>
+        </MenuProvider>
               
     );
   }

@@ -17,7 +17,7 @@ export default class MainActivityView extends Component
                                 source={require('../img/bg_header.png')}
                                 style={style.imgBackground}
                         >
-                            <Text onPress={()=>this.setClick(7)}>Login</Text>
+                            <Text onPress={()=>this.setClick(7)} style={style.textHeader}>Login</Text>
                         </ImageBackground>
                         
                     </View>
@@ -120,10 +120,16 @@ const style = StyleSheet.create(
                 justifyContent:"flex-start",
                 alignContent:"center"             
             },
-        text:{
-                
+        textHeader:{
+              marginTop:30,
+              marginLeft:20,
+              color:"#FFF",
+              fontWeight:"bold"
             
-        }  
+        } ,
+        text:{
+
+        }
                 
         }
     

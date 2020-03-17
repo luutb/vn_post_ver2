@@ -12,6 +12,7 @@ export default class InforController extends Component
             data:''
         }
     }
+//abc
    
     componentDidMount()
     {   

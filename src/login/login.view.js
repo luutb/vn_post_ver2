@@ -11,7 +11,8 @@ export default class LoginView extends Component
         super();
         this.state={
             username:'',
-            password:''
+            password:'',
+            text:''
         }
     }
     render()
@@ -29,11 +30,11 @@ export default class LoginView extends Component
                     <View >
                         <View style={style.formLogin}>
                             <Icon name="user" size={20} color="#900" style={style.icon}></Icon>
-                            <TextInput placeholder="Tài khoản ..." onChangeText={(text)=>this.setState({username:text})}></TextInput>
+                    <TextInput placeholder="Tài khoản ..." onChangeText={(text)=>this.setState({username:text})}></TextInput>
                         </View>
                         <View style={style.formLogin}>
                             <Icon name="textbox-password" size={20} color="#900" style={style.icon}></Icon>
-                            <TextInput placeholder="Mật khẩu" onChangeText={(text)=>this.setState({password:text})}></TextInput>
+                            <TextInput placeholder="Mật khẩu" secureTextEntry={true} onChangeText={(text)=>this.setState({password:text})}></TextInput>
                         </View>
                         <View style={{marginTop:10, backgroundColor:"#000099", height:40,justifyContent:"center"}}>
                             <Text style={style.button} onPress={this.onClick.bind(this)}>Đăng Nhập</Text>

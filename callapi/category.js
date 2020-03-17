@@ -1,5 +1,5 @@
 
-const HOST = "http://192.168.44.103:8080/";
+const HOST = "http://192.168.0.113:8080/";
 export default
 {
     getHeader: function(more ={}){
@@ -20,8 +20,7 @@ export default
            
           })
           .then((response) => response.json())
-         
-          
+        
           
     },
        

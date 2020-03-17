@@ -1,5 +1,5 @@
 import React,{ Component } from "react"; 
-import { Button,Alert, Text} from 'react-native';
+import { Button,Alert, Text,View} from 'react-native';
 import {
     Menu,
     MenuOptions,
@@ -11,19 +11,24 @@ import {
 export default ()=>{
   function setClick()
   {
-    window.navigation.navigate("Dashboard")
+    window.navigation.navigate("Main")
   }
   // tao menu
    return <Menu>
-    <MenuTrigger text='Select action' />
-    <MenuOptions>
-      <MenuOption onSelect={() =>setClick()}>
-      <Text style={{color: 'red'}}>Test</Text>
+    
+    <MenuTrigger style={{paddingLeft:20,paddingTop:30}}>
+      <Text style={{color:"#fff"}}>LogOut</Text>
+    </MenuTrigger>  
+    <MenuOptions >
+      <View style={{backgroundColor:"rgb:(255,255,255,0.5)"}}>
+      <MenuOption >        
+      <Text style={{color: 'black'}}>Thông tin cá nhân</Text>
       </MenuOption>
-      <MenuOption onSelect={() => alert(`Delete`)} >
-        <Text style={{color: 'red'}}>Delete</Text>
+      <MenuOption onSelect={() =>setClick()} >
+        <Text style={{color: 'black'}}>Đăng xuất</Text>
       </MenuOption>
       <MenuOption onSelect={() => alert(`Not called`)} disabled={true} text='Disabled'/>
+      </View>
     </MenuOptions>
   </Menu>
 

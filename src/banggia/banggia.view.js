@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { View, Text, ImageBackground, StyleSheet, HeaderTitle,Image,Headers } from 'react-native';
 import category from '../../callapi/category'
-import { FlatList } from "react-native-gesture-handler"
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler"
 import HeadersView from '../header/header'
 export default class PricelistView extends Component
 {
@@ -20,7 +20,7 @@ export default class PricelistView extends Component
      
     render()
     { 
-        // console.log("data tu controller", this.props.data)
+        console.log("data tu controller", this.props.data)
        
         return(
             <View>
@@ -30,8 +30,9 @@ export default class PricelistView extends Component
                     data={this.props.data}
                     renderItem={({item})=>
                     <View style={style.boder}> 
-                        
-                        <Text style={style.textView}>{item.category1}</Text>
+                        <TouchableOpacity onPress={()=>this.setClick(item.id_category)}>
+                            <Text style={style.textView}>{item.category1}</Text>
+                        </TouchableOpacity>
                     </View>
                         }
                     >
@@ -39,6 +40,10 @@ export default class PricelistView extends Component
                  </View>
             </View>
         );     
+    }
+    setClick(i)
+    {
+        this.props.setId(i);
     }
 }
 const style = StyleSheet.create(

@@ -8,6 +8,8 @@ import CaculateController from "./src/calculatetest/calculate.controller"
 import LoginController from "./src/login/login.controller"
 import GoogleSearch from "./src/calculatetest/ggSearch.view"
 import InforController from "./src/infor/infor.cotroller"
+import MainCenterController from './src/mainCenter/mainCenter.controller'
+import WebViewController from './src/webview/webview.controller'
 
 
 export default
@@ -55,5 +57,13 @@ export default
     {
         name:"infor",
         component: InforController
+    },
+    {
+        name:"mainCenter",
+        component: MainCenterController
+    },
+    {
+        name:"webview",
+        component: WebViewController
     }
 ]

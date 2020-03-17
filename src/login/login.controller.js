@@ -18,15 +18,16 @@ export default class LoginController extends Component
     {
         category.postData({username,password}).then((response)=>{
             console.log(response);
-        if(response!=null&& response.data==true)
+            
+        if(response!=null&& response.error==0)
         {
-            this.props.navigation.navigate("Main")
+            this.props.navigation.navigate("mainCenter");
+            window.token = response.data.id_user;
         }
         else
             Alert.alert("sai roi nhe")
          }
         
-        );
-        
+        );      
     }
 }

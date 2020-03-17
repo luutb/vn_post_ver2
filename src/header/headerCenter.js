@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, ImageBackground, StyleSheet, HeaderTitle,Image,Headers, Button } from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ToolBarMenu from '../toolBarMenu/toolBarmenu'
+
 export default class HeadersView extends Component
 {
     render()
@@ -13,7 +16,9 @@ export default class HeadersView extends Component
                     <View style={style.contentHeader}>
                     <Text style={{ textAlign:"center"}}>{this.props.content}</Text>
                     </View>
-                
+                <TouchableOpacity onPress={()=>ToolBarMenu()}>
+                    <Text>logout</Text>
+                </TouchableOpacity>
                 </View>
         
         );

@@ -31,7 +31,11 @@ export default class PricelistController extends Component
         return(
             <PricelistView
                     data={this.state.data}
+                    setId ={this.setId.bind(this)}
             ></PricelistView>
         );  
+    }
+    setId(i){
+        this.props.navigation.navigate("webview",{Id:i})
     }
  }
